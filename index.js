@@ -1,23 +1,23 @@
 const cosasQueAprendimos = [
   {
     tema: "terminal",
-    class: "",
+    class: "terminal",
   },
   {
     tema: "node",
-    class: "",
+    class: "backend",
   },
   {
     tema: "oop",
-    class: "",
+    class: "objects",
   },
   {
     tema: "typescript",
-    class: "",
+    class: "tipado",
   },
   {
     tema: "css",
-    class: "",
+    class: "styles",
   },
   {
     tema: "dom",
@@ -25,6 +25,18 @@ const cosasQueAprendimos = [
   },
 ];
 
-function main() {}
+function main() {
+  const ulTag = document.querySelector(".lista");
+  const ulArray = Array.from(ulTag.children);
+  ulArray.forEach((li) => {
+    li.remove();
+  });
+  cosasQueAprendimos.forEach((item) => {
+    const newLi = document.createElement("li");
+    newLi.textContent = item.tema;
+    newLi.className = item.class;
+    ulTag.appendChild(newLi);
+  });
+}
 
 main();
